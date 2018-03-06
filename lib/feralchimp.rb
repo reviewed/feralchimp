@@ -132,5 +132,5 @@ end
 
 { :mailchimp => :JSON, :mailchimp_export => :JSONExport }.each do |m, o|
   o = Feralchimp::Response.const_get(o)
-  Faraday.register_middleware(:response, m => proc { o })
+  Faraday::Middleware.register_middleware(:response, m => proc { o })
 end
